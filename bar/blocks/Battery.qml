@@ -21,7 +21,7 @@ BarBlock {
   Process {
     id: batteryProc
     // Modify command to get both capacity and status in one call
-    command: ["sh", "-c", "echo $(cat /sys/class/power_supply/BAT0/capacity),$(cat /sys/class/power_supply/BAT0/status)"]
+    command: ["sh", "-c", "echo $(cat /sys/class/power_supply/BAT*/capacity),$(cat /sys/class/power_supply/BAT*/status)"]
     running: hasBattery
 
     stdout: SplitParser {
