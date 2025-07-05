@@ -24,11 +24,11 @@ BarText {
   }
 
   Component.onCompleted: {
-    Hyprland.rawEvent.connect(hyprEvent)
-  }
-
-  function hyprEvent(e) {
-    titleProc.running = true
+    Hyprland.rawEvent.connect(function(event) {
+      if (event.name === "activewindowv2") {
+        titleProc.running = true;
+      }
+    })
   }
 }
 
